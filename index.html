@@ -67,6 +67,11 @@
         window.scrollTo(0, 1);
       }, 0);
     });
+
+   // Disable overscroll / viewport moving on everything but scrollable divs
+   $('body').on('touchmove', function (e) {
+           if (!$('.scrollable').has($(e.target)).length) e.preventDefault();
+   });
   </script>
 </head>
 <body>
